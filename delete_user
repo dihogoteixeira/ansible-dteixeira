@@ -1,0 +1,9 @@
+---
+- name: Removendo usuários do ambiente
+  hosts: all
+  vars:
+    - username: dteixeira
+  tasks:
+    - name: Removendo usuário.
+      user: name={{ username }} state=absent remove=yes
+      tags: userdel  
