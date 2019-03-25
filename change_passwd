@@ -1,0 +1,9 @@
+---
+- name: Alterando senha de usuário
+  hosts: all
+  vars:
+    - username: dteixeira
+  tasks:
+    - name: Realizando troca de senha.
+      user: name={{ username }} update_password=always password={{ 'mudar@2019' | password_hash('sha512') }}
+      tags: passwd
