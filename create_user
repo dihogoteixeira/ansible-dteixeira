@@ -1,0 +1,9 @@
+---
+- name: Criacao do usuário
+  hosts: all
+  vars:
+    - username: dteixeira
+  tasks:
+    - name: Criando usuario nos servidores.
+      user: name={{ username }} shell=/bin/bash groups=wheel createhome=yes state=present
+      tags: usuario_infra
