@@ -1,0 +1,12 @@
+---
+- hosts: all
+  sudo: true
+  tasks:
+    - name: Copy script file and set permissions
+      copy:
+        src: ../filebeat.daemon.install.prd.sh
+        dest: /tmp
+        mode: 'a+x'
+
+    - name: Run a script on remote hosts
+      script: /tmp/filebeat.daemon.install.prd.sh
